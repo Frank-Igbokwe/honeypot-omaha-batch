@@ -7,8 +7,6 @@ Building and deploying the "Honeypot-Omaha" DShield sensor during my undergradua
 
 One of the biggest operational bottlenecks I ran into was parsing massive, unstructured volumes of raw sensor logs. Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: `batch.py`.
 
-Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, I’ve made `batch.py` available for the ISC ecosystem. Check out the repository and let me know your thoughts or how you're tackling log automation in your own environments! 👇
-
 Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: `batch.py`.
 
 Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, 
