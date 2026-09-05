@@ -31,7 +31,7 @@ let me know your thoughts or how you're tackling log automation in your own envi
 
 ```bash
 git clone https://github.com/Frank-Igbokwe/honeypot-omaha-batch.git
-cd Honeypot_Omaha-and-batch
+cd honeypot-omaha-batch
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
