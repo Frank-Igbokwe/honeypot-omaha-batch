@@ -9,8 +9,6 @@ One of the biggest operational bottlenecks I ran into was parsing massive, unstr
 
 Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, I’ve made `batch.py` available for the ISC ecosystem. Check out the repository and let me know your thoughts or how you're tackling log automation in your own environments! 👇
 
-HEAD
-
 Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: `batch.py`.
 
 Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, 
@@ -19,7 +17,7 @@ I’ve made `batch.py` available for the ISC ecosystem. Check out the repository
 
 let me know your thoughts or how you're tackling log automation in your own environments! 👇
 
-b9c14d0 (Update hashtags to reflect source-available license)
+
 #CyberSecurity #ThreatIntelligence #SourceAvailable #Python #IncidentResponse #SANS #DShield
 
 ## Features
@@ -38,7 +36,7 @@ b9c14d0 (Update hashtags to reflect source-available license)
 ## Installation
 
 ```bash
-git clone https://github.com/Frank-Igbokwe/Honeypot_Omaha-and-batch-unified-analysis-processing-pipeline.git
+git clone https://github.com/Frank-Igbokwehttps://github.com/Frank-Igbokwe/honeypot-omaha-batch.git.git
 cd Honeypot_Omaha-and-batch-unified-analysis-processing-pipeline
 python3 -m venv venv
 source venv/bin/activate
