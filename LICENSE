@@ -8,9 +8,12 @@ obtain a copy of the License at https://www.mariadb.com/bsl11/
 
 Change Date: 2030-09-04
 
-Change License: MIT (or ISC)
+Change License: GNU General Public License v3.0 (or later)
 
 Additional Use Grant: 
-You may make production, internal, and non-commercial use of the Licensed Work. 
-You may not offer the Licensed Work to third parties on a hosted, managed, or 
-embedded basis in order to compete with a commercial product derived from it.
+You may make internal, educational, non-commercial, and research use 
+of the Licensed Work, including deployment within academic or community 
+security research entities (such as the SANS Internet Storm Center). 
+You may not offer, provide, or make available the Licensed Work to 
+third parties on a hosted, managed, or embedded basis, or use it to 
+commercialize a competing product or service, prior to the Change Date.
