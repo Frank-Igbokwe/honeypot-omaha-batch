@@ -289,7 +289,7 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
 def run_honeypot_pipeline():
     print("[*] Starting Unified Honeypot_Omaha Processing and Analysis Pipeline...")
     
-    json_files = glob.glob('webhoneypot_*.json') + glob.glob('cowrie.json')
+    json_files = glob.glob('webhoneypot_*.json') + glob.glob('cowrie.json*')
     log_files = glob.glob('*.log') + glob.glob('webhoneypot_*.log') + glob.glob('cowrie.log')
     all_files = list(set(json_files + log_files))
     
