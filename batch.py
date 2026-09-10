@@ -3,10 +3,10 @@
 """
 ====================================================================
 Project Name : Honeypot_Omaha (Unified Honeypot Analysis Pipeline)
-Author       : Your Name Here
+Author       : Frank Ngoka Igbokwe
 Created      : 2026
-Copyright    : (c) 2026 Your Name. All rights reserved.
-License      : Proprietary / All Rights Reserved 
+Copyright    : (c) 2026 Frank Ngoka Igbokwe. All rights reserved.
+License      : Business Source License 1.1 (BSL-1.1)
 ====================================================================
 """
 import csv
