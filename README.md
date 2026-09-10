@@ -1,4 +1,4 @@
-# batch.py: Honeypot_Omaha unified analysis processing pipeline
+# "batch.py": Honeypot_Omaha unified analysis processing pipeline
 # Honeypot Log Automation, correlation, and IoC Extraction Pipeline
 
 A lightweight, automated Python pipeline designed to ingest, parse, and extract critical Indicators of Compromise (IoCs) from raw honeypot and DShield sensor logs. 
