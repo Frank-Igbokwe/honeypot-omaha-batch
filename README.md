@@ -14,6 +14,17 @@ let me know your thoughts or how you're tackling log automation in your own envi
 
 #CyberSecurity #ThreatIntelligence #SourceAvailable #Python #IncidentResponse #SANS #DShield
 
+
+## Pipeline Architecture & Workflow
+
+The Honeypot-Omaha pipeline automates the ingestion, parsing, and correlation of telemetry gathered from your cloud-deployed sensors:
+
+1. **Telemetry Inception:** Cowrie SSH/Telnet honeypots and DShield sensors capture raw malicious connection attempts, authentication payloads, and command histories in the cloud environment.
+2. **Automated Parsing (`batch.py`):** The Python processing script ingests raw log exports, normalizes JSON attributes, and filters out noise.
+3. **IoC Extraction & Correlation:** The engine correlates IP addresses, credentials, and command execution patterns against known threat indicators.
+4. **Reporting & Output:** Processed data is structured into clean TSV/CSV datasets and exported for deeper analysis, Google Sheets reporting, or submission to the SANS Internet Storm Center.
+
+
 ## Features
 
 - **Automated Bulk Log Parsing:** Quickly process large volumes of unstructured connection logs.
