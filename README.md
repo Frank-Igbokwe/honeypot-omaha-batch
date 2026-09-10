@@ -41,6 +41,11 @@ pip install -r requirements.txt
 
 - Run the pipeline against your raw log directory by specifying the input path:
 
+## In the same folder
+```bash
+ sudo python3 batch.py
+```
+## Specify a path and output format
 ```bash
 python3 batch.py --input /path/to/raw/logs --output results.csv
 ```
