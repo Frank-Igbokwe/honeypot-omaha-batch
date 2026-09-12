@@ -21,7 +21,7 @@ Honeypot_Omaha/
 ├── cli/
 │   └── batch.py        # Automated command-line log aggregation & parsing script
 ├── gui/
-│   ├── app.py          # Graphical User Interface application files
+│   ├── batch_gui.py         # Graphical User Interface application files
 │   └── assets/         # UI styling and static resources
 ├── README.md
 └── LICENSE
