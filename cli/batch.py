@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+import sys
+
+def print_banner():
+    print("-" * 60)
+    print("Project Honeypot-Omaha | SANS ISC Practicum Open-Source Tool")
+    print("Support or Sponsor: https://github.com/sponsors/Frank-Igbokwe")
+    print("-" * 60)
+
+if __name__ == "__main__":
+    print_banner()
+    # Your existing CLI argument parsing or main execution logic goes here
+
 """
 ====================================================================
 Project Name : Honeypot_Omaha (Unified Honeypot Analysis Pipeline)
