@@ -46,10 +46,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     
-    # Your rest of the script/pipeline logic follows here...
-
-
-    # Rest of your main execution and pipeline logic goes here...
 # ====================================================================
 # INTELLECTUAL PROPERTY SECURITY & OBSCURE MODULE
 # ====================================================================
