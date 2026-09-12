@@ -99,6 +99,7 @@ Your support helps keep open-source security tools free, transparent, and active
 ## 📜 License
 
 This project is licensed under the Business Source License 1.1 (BSL-1.1). See the LICENSE file for details.
+
 Copyright (c) 2026 Frank Ngoka Igbokwe.
 
 
