@@ -16,7 +16,7 @@ Project Honeypot-Omaha is an automated pipeline designed to aggregate, parse, an
 
 ## 📺 See It in Action (GUI Demo)
 
-Watch the 6-minute walkthrough below to see how the GUI version simplifies log correlation, indicator extraction, and visualization:
+Watch the 7-minute walkthrough below to see how the GUI version simplifies log correlation, indicator extraction, and visualization:
 
 [![Watch the Honeypot-Omaha GUI Demo](https://img.shields.io/badge/Watch-YouTube%20GUI%20Demo-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UCFf9YseKE2HvkzCkWM-rhVA)
 
@@ -89,7 +89,7 @@ python3 batch.py --input /path/to/raw/logs --output results.csv
 ## License
 
 This project is licensed under the Business Source License 1.1 (BSL-1.1). See the LICENSE file for details.
-
+Copyright (c) 2026 Frank Ngoka Igbokwe.
 
 
 ## Support This Project
@@ -101,4 +101,4 @@ If Project Honeypot-Omaha has helped you streamline your log analysis, secure yo
 
 Your support helps keep open-source security tools free, transparent, and actively updated for the analyst community!
 
-Copyright (c) 2026 Frank Ngoka Igbokwe.
+
