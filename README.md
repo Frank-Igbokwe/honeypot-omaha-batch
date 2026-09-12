@@ -74,6 +74,9 @@ pip install -r requirements.txt
 
 ## Usage
 
+🚀 Quick Start
+
+The command-line tool processes raw log exports, extracts Indicators of Compromise (IOCs), and formats outputs for easy review.
 - Run the pipeline against your raw log directory by specifying the input path:
 
 ## In the same folder
@@ -85,20 +88,27 @@ pip install -r requirements.txt
 python3 batch.py --input /path/to/raw/logs --output results.csv
 ```
 
+For users who prefer a graphical workflow, navigate to the gui/ directory and follow the setup instructions in the GUI documentation to launch the dashboard.
 
-## License
+🤝 Contributing & Feedback
+Contributions, feature requests, and bug reports are welcome! Please feel free to open a GitHub Issue or submit a pull request.
+
+## 💡 Support This Project
+
+If Project Honeypot-Omaha has helped you streamline your log analysis, secure your environment, or save time during threat hunting, consider supporting its ongoing development:
+
+* **⭐ Star this repository on GitHub to help others discover it! [GitHub Sponsors](https://github.com/sponsors/Frank-Igbokwe)** (Best for backing long-term open-source maintenance)
+* **☕ Buy Me a Coffee(https://buymeacoffee.com/Frank-Igbokwe)** (Great for quick, one-time contributions)
+
+Your support helps keep open-source security tools free, transparent, and actively updated for the analyst community!
+
+
+## 📜 License
 
 This project is licensed under the Business Source License 1.1 (BSL-1.1). See the LICENSE file for details.
 Copyright (c) 2026 Frank Ngoka Igbokwe.
 
 
-## Support This Project
 
-If Project Honeypot-Omaha has helped you streamline your log analysis, secure your environment, or save time during threat hunting, consider supporting its ongoing development:
-
-* **[GitHub Sponsors](https://github.com/sponsors/Frank-Igbokwe)** (Best for backing long-term open-source maintenance)
-* **[Buy Me a Coffee](https://buymeacoffee.com/Frank-Igbokwe)** (Great for quick, one-time contributions)
-
-Your support helps keep open-source security tools free, transparent, and actively updated for the analyst community!
 
 
