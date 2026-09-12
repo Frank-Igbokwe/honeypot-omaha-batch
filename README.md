@@ -6,14 +6,34 @@ A lightweight, automated Python pipeline designed to ingest, parse, and extract 
 
 ---
 
+# Project Honeypot-Omaha: Automated Log Processing & Threat Intelligence Pipeline
+
+![License: BSL](https://img.shields.io/badge/License-BSL-blue.svg)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)
+![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20AWS-lightgrey)
+
+Project Honeypot-Omaha is an automated pipeline designed to aggregate, parse, and analyze threat telemetry and log data (optimized for Cowrie SSH/Telnet honeypots and DShield sensors). Whether you prefer working strictly from the terminal or managing your data through a clean graphical interface, this repository provides the tools you need.
+
 ## 📺 See It in Action (GUI Demo)
-Watch the 7-minute walkthrough below to see how the GUI version simplifies log correlation, indicator extraction, and visualization:
+
+Watch the 6-minute walkthrough below to see how the GUI version simplifies log correlation, indicator extraction, and visualization:
 
 [![Watch the Honeypot-Omaha GUI Demo](https://img.shields.io/badge/Watch-YouTube%20GUI%20Demo-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UCFf9YseKE2HvkzCkWM-rhVA)
 
 *(Or click the thumbnail above to open the video on YouTube)*
 
----
+## 📂 Repository Structure
+
+```text
+Honeypot_Omaha/
+├── cli/
+│   └── batch.py        # Automated command-line log aggregation & parsing script
+├── gui/
+│   ├── app.py          # Graphical User Interface application files
+│   └── assets/         # UI styling and static resources
+├── README.md
+└── LICENSE
+--------
 
 Building and deploying the "Honeypot-Omaha" DShield sensor during my undergraduate practicum with the SANS Internet Storm Center was an incredible deep-dive into live production threat hunting.
 One of the biggest operational bottlenecks I ran into was parsing massive, unstructured volumes of raw sensor logs. Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: batch.py.
@@ -69,5 +89,16 @@ python3 batch.py --input /path/to/raw/logs --output results.csv
 ## License
 
 This project is licensed under the Business Source License 1.1 (BSL-1.1). See the LICENSE file for details.
+
+
+
+## Support This Project
+
+If Project Honeypot-Omaha has helped you streamline your log analysis, secure your environment, or save time during threat hunting, consider supporting its ongoing development:
+
+* **[GitHub Sponsors](https://github.com/sponsors/Frank-Igbokwe)** (Best for backing long-term open-source maintenance)
+* **[Buy Me a Coffee](https://buymeacoffee.com/Frank-Igbokwe)** (Great for quick, one-time contributions)
+
+Your support helps keep open-source security tools free, transparent, and actively updated for the analyst community!
 
 Copyright (c) 2026 Frank Ngoka Igbokwe.
