@@ -1,11 +1,3 @@
-# "batch.py": Honeypot_Omaha unified analysis processing pipeline
-# Honeypot Log Automation, correlation, and IoC Extraction Pipeline
-
-
-A lightweight, automated Python pipeline designed to ingest, parse, and extract critical Indicators of Compromise (IoCs) from raw honeypot and DShield sensor logs.
-
----
-
 # Project Honeypot-Omaha: Automated Log Processing & Threat Intelligence Pipeline
 
 ![License: BSL](https://img.shields.io/badge/License-BSL-blue.svg)
@@ -24,7 +16,7 @@ Watch the 7-minute walkthrough below to see how the GUI version simplifies log c
 
 ## 📂 Repository Structure
 
-```text
+```
 Honeypot_Omaha/
 ├── cli/
 │   └── batch.py        # Automated command-line log aggregation & parsing script
@@ -33,8 +25,7 @@ Honeypot_Omaha/
 │   └── assets/         # UI styling and static resources
 ├── README.md
 └── LICENSE
---------
-
+```
 Building and deploying the "Honeypot-Omaha" DShield sensor during my undergraduate practicum with the SANS Internet Storm Center was an incredible deep-dive into live production threat hunting.
 One of the biggest operational bottlenecks I ran into was parsing massive, unstructured volumes of raw sensor logs. Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: batch.py.
 Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, I’ve made batch.py available for the ISC ecosystem. Check out the repository and let me know your thoughts or how you're tackling log automation in your own environments! 👇
@@ -88,6 +79,7 @@ The command-line tool processes raw log exports, extracts Indicators of Compromi
 python3 batch.py --input /path/to/raw/logs --output results.csv
 ```
 
+
 For users who prefer a graphical workflow, navigate to the gui/ directory and follow the setup instructions in the GUI documentation to launch the dashboard.
 
 🤝 Contributing & Feedback
@@ -97,8 +89,9 @@ Contributions, feature requests, and bug reports are welcome! Please feel free t
 
 If Project Honeypot-Omaha has helped you streamline your log analysis, secure your environment, or save time during threat hunting, consider supporting its ongoing development:
 
-* **⭐ Star this repository on GitHub to help others discover it! [GitHub Sponsors](https://github.com/sponsors/Frank-Igbokwe)** (Best for backing long-term open-source maintenance)
-* **☕ Buy Me a Coffee(https://buymeacoffee.com/Frank-Igbokwe)** (Great for quick, one-time contributions)
+* ** ⭐ Star this repository on GitHub to help others discover it!
+* ** [GitHub Sponsors](https://github.com/sponsors/Frank-Igbokwe)** (Best for backing long-term open-source maintenance)
+* ** ☕ Buy Me a Coffee(https://buymeacoffee.com/Frank-Igbokwe)** (Great for quick, one-time contributions)
 
 Your support helps keep open-source security tools free, transparent, and actively updated for the analyst community!
 
