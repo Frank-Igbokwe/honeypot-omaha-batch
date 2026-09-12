@@ -11,8 +11,7 @@ def print_banner():
 
 if __name__ == "__main__":
     print_banner()
-    # Your existing CLI argument parsing or main execution logic goes here
-
+   
 """
 ====================================================================
 Project Name : Honeypot_Omaha (Unified Honeypot Analysis Pipeline)
