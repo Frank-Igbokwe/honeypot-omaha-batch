@@ -1,17 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-import sys
-
-def print_banner():
-    print("-" * 60)
-    print("Project Honeypot-Omaha | SANS ISC Practicum Open-Source Tool")
-    print("Support or Sponsor: https://github.com/sponsors/Frank-Igbokwe")
-    print("-" * 60)
-
-if __name__ == "__main__":
-    print_banner()
-   
 """
 ====================================================================
 Project Name : Honeypot_Omaha (Unified Honeypot Analysis Pipeline)
@@ -21,6 +9,7 @@ Copyright    : (c) 2026 Frank Ngoka Igbokwe. All rights reserved.
 License      : Business Source License 1.1 (BSL-1.1)
 ====================================================================
 """
+
 import csv
 import glob
 import json
@@ -34,7 +23,33 @@ import re
 import getpass
 import hashlib
 import time
-from datetime import datetime,timezone
+from datetime import datetime, timezone
+
+def print_banner():
+    print("-" * 60)
+    print("Project Honeypot-Omaha | SANS ISC Practicum Open-Source Tool")
+    print("Support or Sponsor: https://github.com/sponsors/Frank-Igbokwe")
+    print("-" * 60)
+
+if __name__ == "__main__":
+    print_banner()
+
+
+    parser = argparse.ArgumentParser(
+        description="Automated log aggregation, parsing, and IoC extraction for Honeypot-Omaha.",
+        epilog="Support this project: https://github.com/sponsors/Frank-Igbokwe"
+    )
+    
+  
+    parser.add_argument("--input", help="Path to raw log directory")
+    parser.add_argument("--output", help="Path to output results file")
+
+    args = parser.parse_args()
+    
+    # Your rest of the script/pipeline logic follows here...
+
+
+    # Rest of your main execution and pipeline logic goes here...
 # ====================================================================
 # INTELLECTUAL PROPERTY SECURITY & OBSCURE MODULE
 # ====================================================================
