@@ -32,21 +32,6 @@ def print_banner():
     print("Support or Sponsor: https://github.com/sponsors/Frank-Igbokwe")
     print("-" * 60)
 
-if __name__ == "__main__":
-    print_banner()
-
-
-    parser = argparse.ArgumentParser(
-        description="Automated log aggregation, parsing, and IoC extraction for Honeypot-Omaha.",
-        epilog="Support this project: https://github.com/sponsors/Frank-Igbokwe"
-    )
-    
-  
-    parser.add_argument("--input", help="Path to raw log directory")
-    parser.add_argument("--output", help="Path to output results file")
-
-    args = parser.parse_args()
-    
 # ====================================================================
 # INTELLECTUAL PROPERTY SECURITY & OBSCURE MODULE
 # ====================================================================
@@ -57,6 +42,7 @@ try:
     MATPLOTLIB_AVAILABLE = True
 except ImportError:
     MATPLOTLIB_AVAILABLE = False
+
 def format_short_time(ts):
     if not ts or ts == 'N/A':
         return 'N/A'
@@ -64,6 +50,7 @@ def format_short_time(ts):
         return ts.split('.')[0].replace('T', ' ')
     except Exception:
         return ts
+
 def get_threat_intel_mapping(endpoint_or_proto):
     item = endpoint_or_proto.upper()
     if 'CGI-BIN' in item or 'SH' in item:
@@ -116,6 +103,7 @@ def get_threat_intel_mapping(endpoint_or_proto):
             'intention': 'Probe application attack surface and web paths',
             'mitigation': 'Implement rate limiting and robust input validation'
         }
+
 def get_ip_intel(ip):
     try:
         url = f"http://ip-api.com/json/{ip}?fields=status,country,city,isp,org"
@@ -129,6 +117,7 @@ def get_ip_intel(ip):
     except Exception:
         pass
     return 'Unknown', 'Unknown'
+
 def generate_pie_charts(ip_counter, protocol_counter, username_counter, password_counter, target='both'):
     if not MATPLOTLIB_AVAILABLE:
         print("[!] Matplotlib is not installed. Skipping pie chart generation. (Run: pip install matplotlib)")
@@ -176,6 +165,7 @@ def generate_pie_charts(ip_counter, protocol_counter, username_counter, password
         plt.savefig('cowrie_top5_metrics_pie_chart.png')
         plt.close()
         print("[+] Saved Cowrie Pie Chart as 'cowrie_top5_metrics_pie_chart.png'")
+
 def open_chart_application(filename):
     if not os.path.exists(filename):
         print(f"[!] Error: File '{filename}' not found.")
@@ -204,6 +194,7 @@ def open_chart_application(filename):
                 opened = True
     except Exception as e:
         print(f"[!] Could not launch application automatically: {e}")
+
 def handle_chart_selection(ip_counter, protocol_counter, username_counter, password_counter):
     if not MATPLOTLIB_AVAILABLE:
         print("[!] Matplotlib is not installed. Skipping chart generation.")
@@ -232,6 +223,7 @@ def handle_chart_selection(ip_counter, protocol_counter, username_counter, passw
             break
         else:
             print("[!] Invalid option. Choose between 1 and 4.")
+
 def view_text_file(filename):
     if not os.path.exists(filename):
         print(f"[!] Error: Report file '{filename}' not found.")
@@ -241,6 +233,7 @@ def view_text_file(filename):
     except Exception:
         with open(filename, 'r', encoding='utf-8', errors='ignore') as f:
             print(f.read())
+
 def display_quick_console_overview(ip_counter, protocol_counter, username_counter, password_counter, command_attempts, file_artifacts):
     print("\n" + "="*60)
     print("Honeypot_Omaha QUICK CONSOLE OVERVIEW SUMMARY")
@@ -262,6 +255,7 @@ def display_quick_console_overview(ip_counter, protocol_counter, username_counte
     else:
         print("  - No specialized binary or document artifacts extracted in this run.")
     print("="*60 + "\n")
+
 def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, credential_attempts, command_attempts, ip_network_details, endpoint_statuses, file_artifacts, cowrie_event_records, endpoint_timestamps):
     print("\n" + "="*50)
     print("Honeypot_Omaha - SEARCH/QUERY DATA BY IP OR FQDN (OPTION 5)")
@@ -299,17 +293,14 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
                 f_out.write(f"Organization / ISP         : {org}\n\n")
                 
                 # --- PHASE 1: BRUTE-FORCE & BEHAVIORAL PROFILING ---
-                
                 ip_creds = [c for c in credential_attempts if c.get('ip') == user_query or c.get('src_ip') == user_query or user_query in c.get('endpoint', '')]
                 unique_usernames = list(set([c.get('username') for c in ip_creds if c.get('username')]))
                 unique_passwords = list(set([c.get('password') for c in ip_creds if c.get('password')]))
 
-                # Determine velocity/brute-force tag
                 total_attempts = ip_counter.get(user_query, 0)
                 is_brute_forcer = total_attempts > 20 or len(ip_creds) > 5
                 actor_behavior_tag = "[!] HIGH-VELOCITY BRUTE-FORCE ACTOR" if is_brute_forcer else "[*] Standard Scanning / Reconnaissance"
                 
-                # Write the profiling results directly to the report file
                 f_out.write(f"Actor Behavioral Profile : {actor_behavior_tag}\n")
                 f_out.write(f"Total Attack Velocity    : {total_attempts} total requests logged\n")
                 
@@ -369,6 +360,7 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
                     f_out.write("\n")
                 else:
                     f_out.write("Cowrie Chronological Logs  : No matching Cowrie session records found for this IP on ports 2222/2223.\n\n")
+
                 matching_creds = [c for c in credential_attempts if c['src_ip'] == user_query]
                 if matching_creds:
                     f_out.write(f"Valid Credentials & Auth Attempts Summary ({len(matching_creds)}):\n")
@@ -382,6 +374,7 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
                         f_out.write(f"    Timestamp  : {format_short_time(cred['timestamp'])}\n")
                         f_out.write("    " + "-"*35 + "\n")
                     f_out.write("\n")
+
                 matching_cmds = [cmd for cmd in command_attempts if cmd['src_ip'] == user_query]
                 if matching_cmds:
                     f_out.write(f"Shell Commands Executed by Threat Actor ({len(matching_cmds)}):\n")
@@ -390,6 +383,7 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
                         f_out.write(f"  - [{format_short_time(cmd_entry['timestamp'])}] Session {cmd_entry['session']}:\n")
                         f_out.write(f"    Command: {cmd_entry['command']}\n")
                     f_out.write("\n")
+
                 matching_files = [fa for fa in file_artifacts if fa['src_ip'] == user_query]
                 if matching_files:
                     f_out.write(f"Correlated File Artifacts (.exe, .elf, .pdf, .png, .mime, .html) ({len(matching_files)}):\n")
@@ -397,6 +391,7 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
                     for fa in matching_files:
                         f_out.write(f"  - Type: {fa['type']} | Name/Path: {fa['name']} | Session: {fa['session']}\n")
                     f_out.write("\n")
+
                 targeted_eps = ip_targeted_endpoints.get(user_query, set())
                 if targeted_eps:
                     sorted_targeted_eps = sorted(
@@ -408,37 +403,34 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
                     f_out.write("=" * 75 + "\n")
                     
                     for idx, ep in enumerate(sorted_targeted_eps, 1):
-                        # Retrieve the actual log timestamp stored for this endpoint, default to 'N/A' if not found
                         endpoint_log_time = endpoint_timestamps.get(ep, 'N/A')
-                        
                         intel = get_threat_intel_mapping(ep)
                         status_code = endpoint_statuses.get(ep, '200 OK')
                         
                         f_out.write(f"  {idx}. Endpoint / Protocol : {ep}\n")
-                        f_out.write(f"    Timestamp             : {endpoint_log_time}\n") # <--- Pulls the log's timestamp
-                        f_out.write(f"    HTTP Status Code      : {status_code}\n")
-                        f_out.write(f"    CVE Reference         : {intel['cve']}\n")
-                        f_out.write(f"    Threat Rating Score   : {intel['score_str']}\n")
-                        f_out.write(f"    MITRE ATT&CK          : {intel['mitre']}\n")
-                        f_out.write(f"    Exploit Used          : {intel['exploit']}\n")
-                        f_out.write(f"    Threat Intention      : {intel['intention']}\n")
-                        f_out.write(f"    Mitigation            : {intel['mitigation']}\n")
+                        f_out.write(f"    Timestamp               : {endpoint_log_time}\n")
+                        f_out.write(f"    HTTP Status Code        : {status_code}\n")
+                        f_out.write(f"    CVE Reference           : {intel['cve']}\n")
+                        f_out.write(f"    Threat Rating Score     : {intel['score_str']}\n")
+                        f_out.write(f"    MITRE ATT&CK            : {intel['mitre']}\n")
+                        f_out.write(f"    Exploit Used            : {intel['exploit']}\n")
+                        f_out.write(f"    Threat Intention        : {intel['intention']}\n")
+                        f_out.write(f"    Mitigation              : {intel['mitigation']}\n")
                         f_out.write(f"    " + "-"*45 + "\n")
 
-                    # --- EXTERNAL THREAT INTELLIGENCE OSINT LOOKUP LINKS ---
-                    f_out.write("\nEXTERNAL THREAT INTELLIGENCE OSINT LOOKUP LINKS:\n")
-                    f_out.write("-" * 50 + "\n")
-                    if is_ip:
-                        f_out.write(f"  - VirusTotal IP        : https://www.virustotal.com/gui/ip-address/{user_query}\n")
-                        f_out.write(f"  - Shodan IP Search     : https://www.shodan.io/host/{user_query}\n")
-                        f_out.write(f"  - AbuseIPDB Lookup     : https://www.abuseipdb.com/check/{user_query}\n")
-                        f_out.write(f"  - AlienVault OTX IP    : https://otx.alienvault.com/indicator/ip/{user_query}\n")
-                        f_out.write(f"  - Cisco Talos IP       : https://www.talosintelligence.com/reputation_center/lookup?search={user_query}\n")
-                    elif is_fqdn:
-                        f_out.write(f"  - VirusTotal Domain    : https://www.virustotal.com/gui/domain/{user_query}\n")
-                        f_out.write(f"  - Shodan Domain Search : https://www.shodan.io/search?query={user_query}\n")
-                        f_out.write(f"  - AlienVault OTX Domain: https://otx.alienvault.com/indicator/domain/{user_query}\n")
-                        f_out.write(f"  - Cisco Talos Domain   : https://www.talosintelligence.com/reputation_center/lookup?search={user_query}\n")
+                f_out.write("\nEXTERNAL THREAT INTELLIGENCE OSINT LOOKUP LINKS:\n")
+                f_out.write("-" * 50 + "\n")
+                if is_ip:
+                    f_out.write(f"  - VirusTotal IP        : https://www.virustotal.com/gui/ip-address/{user_query}\n")
+                    f_out.write(f"  - Shodan IP Search     : https://www.shodan.io/host/{user_query}\n")
+                    f_out.write(f"  - AbuseIPDB Lookup     : https://www.abuseipdb.com/check/{user_query}\n")
+                    f_out.write(f"  - AlienVault OTX IP    : https://otx.alienvault.com/indicator/ip/{user_query}\n")
+                    f_out.write(f"  - Cisco Talos IP       : https://www.talosintelligence.com/reputation_center/lookup?search={user_query}\n")
+                elif is_fqdn:
+                    f_out.write(f"  - VirusTotal Domain    : https://www.virustotal.com/gui/domain/{user_query}\n")
+                    f_out.write(f"  - Shodan Domain Search : https://www.shodan.io/search?query={user_query}\n")
+                    f_out.write(f"  - AlienVault OTX Domain: https://otx.alienvault.com/indicator/domain/{user_query}\n")
+                    f_out.write(f"  - Cisco Talos Domain   : https://www.talosintelligence.com/reputation_center/lookup?search={user_query}\n")
             else:
                 f_out.write(f"[!] FQDN or domain keyword '{user_query}' was not found across analyzed endpoints.\n")
         if not found_matches and (is_ip or is_fqdn):
@@ -447,13 +439,21 @@ def query_user_input_data(ip_counter, ip_time_ranges, ip_targeted_endpoints, cre
         view_text_file(query_report_file)
     else:
         print(f"[!] Query report file not generated.")
-def run_honeypot_pipeline():
+
+def run_honeypot_pipeline(input_path=None):
     print("[*] Starting Unified Honeypot_Omaha Processing and Analysis Pipeline...")
     
-    json_files = glob.glob('webhoneypot_*.json') + glob.glob('cowrie.json*')
-    log_files = glob.glob('*.log') + glob.glob('webhoneypot_*.log') + glob.glob('cowrie.log')
+    # Handle custom input path if specified via CLI
+    search_prefix = input_path if input_path else '.'
+    
+    json_files = glob.glob(os.path.join(search_prefix, 'webhoneypot_*.json')) + glob.glob(os.path.join(search_prefix, 'cowrie.json*'))
+    log_files = glob.glob(os.path.join(search_prefix, '*.log')) + glob.glob(os.path.join(search_prefix, 'webhoneypot_*.log')) + glob.glob(os.path.join(search_prefix, 'cowrie.log'))
     all_files = list(set(json_files + log_files))
     
+    if not all_files:
+        print(f"[!] No log or JSON files found in target path: {search_prefix}")
+        return
+        
     ip_counter = Counter()
     endpoint_counter = Counter()
     endpoint_timestamps = {} 
@@ -658,6 +658,7 @@ def run_honeypot_pipeline():
                     
                     except Exception:
                         continue
+                        
     print("\n" + "="*66)
     print("[*] Phase 2: Running Threat Intelligence Lookups & Compiling Report...")
     print("="*66)
@@ -757,6 +758,15 @@ def run_honeypot_pipeline():
             sys.exit(0)
         else:
             print("[!] Invalid option. Choose between 1 and 6.")
+
 if __name__ == '__main__':
-    
-    run_honeypot_pipeline()
+    print_banner()
+    parser = argparse.ArgumentParser(
+        description="Automated log aggregation, parsing, and IoC extraction for Honeypot-Omaha.",
+        epilog="Support this project: https://github.com/sponsors/Frank-Igbokwe"
+    )
+    parser.add_argument("--input", help="Path to raw log directory")
+    parser.add_argument("--output", help="Path to output results file")
+    args = parser.parse_args()
+
+    run_honeypot_pipeline(input_path=args.input)
