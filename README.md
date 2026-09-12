@@ -46,7 +46,7 @@ The Honeypot-Omaha pipeline automates the ingestion, parsing, and correlation of
 
 ```bash
 git clone https://github.com/Frank-Igbokwe/honeypot-omaha-batch.git
-cd honeypot-omaha-batch
+cd honeypot-omaha-batch/cli
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
