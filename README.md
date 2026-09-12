@@ -1,42 +1,46 @@
 # "batch.py": Honeypot_Omaha unified analysis processing pipeline
 # Honeypot Log Automation, correlation, and IoC Extraction Pipeline
 
-A lightweight, automated Python pipeline designed to ingest, parse, and extract critical Indicators of Compromise (IoCs) from raw honeypot and DShield sensor logs. 
+
+A lightweight, automated Python pipeline designed to ingest, parse, and extract critical Indicators of Compromise (IoCs) from raw honeypot and DShield sensor logs.
+
+---
+
+## 📺 See It in Action (GUI Demo)
+Watch the 7-minute walkthrough below to see how the GUI version simplifies log correlation, indicator extraction, and visualization:
+
+[![Watch the Honeypot-Omaha GUI Demo](https://img.shields.io/badge/Watch-YouTube%20GUI%20Demo-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UCFf9YseKE2HvkzCkWM-rhVA)
+
+*(Or click the thumbnail above to open the video on YouTube)*
+
+---
 
 Building and deploying the "Honeypot-Omaha" DShield sensor during my undergraduate practicum with the SANS Internet Storm Center was an incredible deep-dive into live production threat hunting.
-
-One of the biggest operational bottlenecks I ran into was parsing massive, unstructured volumes of raw sensor logs. Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: `batch.py`.
-
-Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, I’ve made `batch.py` available for the ISC ecosystem. Check out the repository and
-
-let me know your thoughts or how you're tackling log automation in your own environments! 👇
-
+One of the biggest operational bottlenecks I ran into was parsing massive, unstructured volumes of raw sensor logs. Filtering out the background noise of the internet manually is slow, so I built a custom automation pipeline in Python to solve it: batch.py.
+Because I want to support the broader security community and help fellow analysts optimize their data ingestion pipelines, I’ve made batch.py available for the ISC ecosystem. Check out the repository and let me know your thoughts or how you're tackling log automation in your own environments! 👇
 
 #CyberSecurity #ThreatIntelligence #SourceAvailable #Python #IncidentResponse #SANS #DShield
-
 
 ## Pipeline Architecture & Workflow
 
 The Honeypot-Omaha pipeline automates the ingestion, parsing, and correlation of telemetry gathered from your cloud-deployed sensors:
-
-1. **Telemetry Inception:** Cowrie SSH/Telnet honeypots and DShield sensors capture raw malicious connection attempts, authentication payloads, and command histories in the cloud environment.
-2. **Automated Parsing (`batch.py`):** The Python processing script ingests raw log exports, normalizes JSON attributes, and filters out noise.
-3. **IoC Extraction & Correlation:** The engine correlates IP addresses, credentials, and command execution patterns against known threat indicators.
-4. **Reporting & Output:** Processed data is structured into clean TSV/CSV datasets and exported for deeper analysis, Google Sheets reporting, or submission to the SANS Internet Storm Center.
-
+* **Telemetry Inception:** Cowrie SSH/Telnet honeypots and DShield sensors capture raw malicious connection attempts, authentication payloads, and command histories in the cloud environment.
+* **Automated Parsing (batch.py):** The Python processing script ingests raw log exports, normalizes JSON attributes, and filters out noise.
+* **IoC Extraction & Correlation:** The engine correlates IP addresses, credentials, and command execution patterns against known threat indicators.
+* **Reporting & Output:** Processed data is structured into clean TSV/CSV datasets and exported for deeper analysis, Google Sheets reporting, or submission to the SANS Internet Storm Center.
 
 ## Features
 
-- **Automated Bulk Log Parsing:** Quickly process large volumes of unstructured connection logs.
-- **Event Aggregation:** Correlates disparate connection events to isolate high-priority anomalies.
-- **IoC Extraction:** Isolate malicious source IPs, targeted ports, and high-frequency scan patterns.
-- **Structured Output:** Export clean datasets for further analysis or reporting.
-- **Data Transformation:** Transforms raw data into clean, structured datasets to drastically reduce analysis time.
+* **Automated Bulk Log Parsing:** Quickly process large volumes of unstructured connection logs.
+* **Event Aggregation:** Correlates disparate connection events to isolate high-priority anomalies.
+* **IoC Extraction:** Isolate malicious source IPs, targeted ports, and high-frequency scan patterns.
+* **Structured Output:** Export clean datasets for further analysis or reporting.
+* **Data Transformation:** Transforms raw data into clean, structured datasets to drastically reduce analysis time.
 
 ## Prerequisites
 
-- Python 3.8 or higher
-- This tool is designed for Linux environments (or via WSL on Windows).
+* Python 3.8 or higher
+* This tool is designed for Linux environments (or via WSL on Windows).
 
 ## Installation
 
