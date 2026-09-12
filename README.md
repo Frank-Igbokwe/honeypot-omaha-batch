@@ -86,15 +86,15 @@ For users who prefer a graphical workflow, navigate to the gui/ directory and fo
 Contributions, feature requests, and bug reports are welcome! Please feel free to open a GitHub Issue or submit a pull request.
 
 ## 💡 Support This Project
-
 If Project Honeypot-Omaha has helped you streamline your log analysis, secure your environment, or save time during threat hunting, consider supporting its ongoing development:
 
-* ** ⭐ Star this repository on GitHub to help others discover it!
-* ** [GitHub Sponsors](https://github.com/sponsors/Frank-Igbokwe)** (Best for backing long-term open-source maintenance)
-* ** ☕ Buy Me a Coffee(https://buymeacoffee.com/Frank-Igbokwe)** (Great for quick, one-time contributions)
+⭐ Star this repository on GitHub to help others discover it!
+
+🔗 GitHub Sponsors (Best for backing long-term open-source maintenance)
+
+☕ Buy Me a Coffee (Great for quick, one-time contributions)
 
 Your support helps keep open-source security tools free, transparent, and actively updated for the analyst community!
-
 
 ## 📜 License
 
