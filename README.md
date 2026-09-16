@@ -80,7 +80,11 @@ python3 batch.py --input /path/to/raw/logs --output results.csv
 ```
 
 
-For users who prefer a graphical workflow, navigate to the gui/ directory and follow the setup instructions in the GUI documentation to launch the dashboard.
+For users who prefer a graphical workflow, navigate to the folder where your logs are and execute the python code below 👇
+
+```bash
+ sudo python3 batch_gui.py
+```
 
 🤝 Contributing & Feedback
 Contributions, feature requests, and bug reports are welcome! Please feel free to open a GitHub Issue or submit a pull request.
